@@ -6,7 +6,9 @@ up:
 .PHONY: up
 
 install:
-	docker-compose run php composer install
+	docker-compose run composer install
+	cp -a .env.example .env
+	docker-compose run php-cli php artisan key:generate
 .PHONY: install
 
 clean:

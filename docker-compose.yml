@@ -14,3 +14,9 @@ services:
     working_dir: /var/www/html
     ports:
       - "8000:80"
+  composer:
+    image: composer
+    volumes:
+      - ./:/app
+      - ./docker/web/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /app
